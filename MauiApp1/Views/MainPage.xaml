@@ -8,8 +8,40 @@
              x:Class="MauiApp1.Views.MainPage">
 
     <Grid ColumnDefinitions="*,*" ColumnSpacing="5" RowDefinitions="*, Auto">
-      <CollectionView BackgroundColor="Aqua"></CollectionView>
-      <CollectionView BackgroundColor="Red"></CollectionView>
+      <CollectionView BackgroundColor="Transparent"
+                      Grid.ColumnSpan="2"
+                      ItemsSource="{Binding Monkeys}"
+                      SelectionMode="None">
+          <CollectionView.ItemTemplate>
+             <DataTemplate x:DataType="model:Monkey">
+               <Grid Padding="10">
+                 <Frame HeightRequest="125">
+                  <Label Text="{Binding Name}"></Label>
+                 </Frame>
+               </Grid>
+             </DataTemplate>
+          </CollectionView.ItemTemplate>
+        
+      </CollectionView>
+      <Button
+        Text="Get monkeys"
+        Grid.Row="1"
+        Margin="8"
+        Command="{Binding GetMonkeysCommand}"
+        IsEnabled="{Binding }"
+        />
+      
+      <ActivityIndicator 
+        IsVisible="{Binding IsBusy}" 
+        IsRunning="{Binding IsBusy}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Grid.RowSpan="2"
+        Grid.ColumnSpan="2"
+        >
+        
+      </ActivityIndicator>
+  
     </Grid>
 
 </ContentPage>

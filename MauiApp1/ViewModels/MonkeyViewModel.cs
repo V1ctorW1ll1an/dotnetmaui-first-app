@@ -11,7 +11,7 @@ public partial class MonkeyViewModel : BaseViewModel
  {
    private readonly MonkeyService _monkeyService;
    
-   ObservableCollection<Monkey> Monkeys { get; } = new();
+   public ObservableCollection<Monkey> Monkeys { get; } = new();
  
    public MonkeyViewModel(MonkeyService monkeyService)
    {
