@@ -15,8 +15,14 @@
           <CollectionView.ItemTemplate>
              <DataTemplate x:DataType="model:Monkey">
                <Grid Padding="10">
-                 <Frame HeightRequest="125">
-                  <Label Text="{Binding Name}"></Label>
+                 <Frame HeightRequest="125" Padding="0">
+                  <Grid ColumnDefinitions="125, *">
+                    <Image Aspect="AspectFill" Source="{Binding Image}" HeightRequest="125" WidthRequest="125"/>
+                    <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
+                      <Label Text="{Binding Name}" FontSize="16"></Label>
+                      <Label Text="{Binding Location}" VerticalOptions="Center" FontSize="14"></Label>
+                    </VerticalStackLayout>
+                  </Grid>
                  </Frame>
                </Grid>
              </DataTemplate>
